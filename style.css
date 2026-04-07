@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     /* Couleurs principales */
-    --bg-cream: #fffbed; /* TA COULEUR EXACTE */
+    --bg-cream: #fffbed; 
     --text-black: #111111;
     --text-gray: #555555;
     --surface-white: #ffffff;
@@ -49,6 +49,11 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Bloque le défilement de la page quand le menu mobile est ouvert */
+body.no-scroll {
+    overflow: hidden;
 }
 
 a {
@@ -191,7 +196,7 @@ h1, h2, h3, h4, .logo {
     align-items: center;
 }
 
-/* 🚨 BLOCAGE STRICT DE LA TAILLE DU LOGO PRINCIPAL 🚨 */
+/* TAILLE DU LOGO PRINCIPAL */
 .main-logo {
     max-height: 45px !important;
     width: auto !important;
@@ -213,7 +218,7 @@ h1, h2, h3, h4, .logo {
 }
 .nav-link:hover::after { width: 100%; }
 
-.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; width: 30px; height: 20px; position: relative; z-index: 1001; }
+.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; width: 35px; height: 25px; position: relative; z-index: 1001; }
 
 /* ==========================================================================
    6. SECTION HERO
@@ -287,7 +292,7 @@ h1, h2, h3, h4, .logo {
 .pricing-subtext { font-size: 0.9rem; margin-top: 0.5rem; color: #A0A0A0; }
 
 /* ==========================================================================
-   10. 🚨 SECTION PARTENAIRES (Taille des logos bloquée) 🚨
+   10. SECTION PARTENAIRES (Taille des logos bloquée)
    ========================================================================== */
 .partners { padding: 6rem 0; background-color: var(--bg-cream); text-align: center; }
 .partners-logos { display: flex; justify-content: center; align-items: center; gap: clamp(3rem, 8vw, 6rem); flex-wrap: wrap; margin-top: 2rem; }
@@ -344,7 +349,7 @@ h1, h2, h3, h4, .logo {
 .footer { background-color: var(--text-black); color: var(--bg-cream); padding: 4rem 0 2rem; }
 .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; border-bottom: 1px solid #333; padding-bottom: 2rem; margin-bottom: 2rem; }
 
-/* 🚨 BLOCAGE LOGO FOOTER 🚨 */
+/* LOGO FOOTER */
 .footer-logo {
     max-height: 40px !important;
     width: auto !important;
@@ -371,15 +376,11 @@ h1, h2, h3, h4, .logo {
 .delay-3 { transition-delay: 0.5s; }
 
 /* ==========================================================================
-   15. RESPONSIVE DESIGN (Tablettes & Mobiles)
+   15. RESPONSIVE DESIGN & MENU MOBILE
    ========================================================================== */
 @media (max-width: 1024px) {
-    .advantages-grid, .pricing-grid, .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    .new-world {
-        transform: scale(1);
-    }
+    .advantages-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+    .new-world { transform: scale(1); }
 }
 
 @media (max-width: 768px) {
@@ -387,9 +388,38 @@ h1, h2, h3, h4, .logo {
     .hero-actions { justify-content: center; }
     .hero-visual { width: 100%; height: 350px; order: -1; }
     
-    .main-nav, .nav-cta { display: none; }
+    /* Bouton d'action et Menu Desktop cachés */
+    .nav-cta { display: none; }
+    
+    /* Activation du bouton burger */
     .mobile-menu-btn { display: block; }
-    .burger-line { display: block; width: 100%; height: 2px; background-color: var(--text-black); margin: 5px 0; transition: var(--transition-fast); }
+    .burger-line { display: block; width: 100%; height: 3px; background-color: var(--text-black); margin: 6px 0; transition: var(--transition-smooth); transform-origin: center; }
+    
+    /* Animation du bouton burger en croix */
+    .mobile-menu-btn.active .burger-line:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .mobile-menu-btn.active .burger-line:nth-child(2) { opacity: 0; }
+    .mobile-menu-btn.active .burger-line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    
+    /* Menu Mobile Plein Écran */
+    .main-nav { 
+        position: fixed; 
+        top: 0; 
+        left: -100%; /* Caché hors écran par défaut */
+        width: 100%; 
+        height: 100vh; 
+        background-color: var(--bg-cream); 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 999;
+    }
+    
+    .main-nav.active { left: 0; } /* Glisse dans l'écran */
+    
+    .nav-list { flex-direction: column; gap: 3rem; text-align: center; }
+    .nav-link { font-size: 1.8rem; font-weight: 700; color: var(--text-black); }
     
     .hero-title { font-size: 2.5rem; }
     .form-row { flex-direction: column; }
