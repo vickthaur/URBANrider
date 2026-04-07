@@ -1,6 +1,6 @@
 /**
  * URBAN RIDERS - Script interactif
- * Gère les animations au défilement, le menu et le formulaire.
+ * Gère les animations au défilement, le menu mobile et le formulaire.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        1. ANIMATIONS AU DÉFILEMENT (Scroll Reveal)
        ========================================================================== */
-    // On sélectionne tous les éléments qui doivent être animés
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-    // Configuration de l'observateur (se déclenche quand 15% de l'élément est visible)
     const revealOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -19,18 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Si l'élément n'est pas dans le champ de vision, on ne fait rien
             if (!entry.isIntersecting) return;
-
-            // Sinon, on ajoute la classe 'active' pour lancer l'animation CSS
             entry.target.classList.add('active');
-            
-            // On arrête d'observer cet élément pour que l'animation ne se joue qu'une fois
             observer.unobserve(entry.target);
         });
     }, revealOptions);
 
-    // On applique l'observateur à chaque élément
     revealElements.forEach(el => {
         revealOnScroll.observe(el);
     });
@@ -41,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
 
     window.addEventListener('scroll', () => {
-        // Si on descend de plus de 50 pixels, on ajoute une ombre et on réduit le header
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
@@ -58,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             
-            // Ignorer s'il s'agit juste d'un '#' vide
             if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
@@ -80,10 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            // Empêche le rechargement de la page
             e.preventDefault();
 
-            // Récupère le bouton pour le modifier
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
 
@@ -93,16 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.style.color = "var(--text-black)";
             submitBtn.style.pointerEvents = "none";
 
-            // 2. Simulation du délai serveur (1.5 secondes) puis message de succès
+            // 2. Simulation d'envoi
             setTimeout(() => {
                 submitBtn.textContent = "Message envoyé ! 🚀";
-                submitBtn.style.backgroundColor = "#00C853"; // Vert succès
+                submitBtn.style.backgroundColor = "#00C853"; 
                 submitBtn.style.color = "white";
                 
-                // On vide le formulaire
                 contactForm.reset();
 
-                // 3. Retour à l'état initial après 3 secondes
+                // 3. Retour à la normale
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
                     submitBtn.style.backgroundColor = "";
@@ -114,15 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       5. MENU BURGER MOBILE (Simple alerte pour l'exemple)
+       5. MENU BURGER MOBILE (Menu interactif plein écran)
        ========================================================================== */
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (mobileMenuBtn) {
+    const mainNav = document.querySelector('.main-nav');
+    const navLinksMobile = document.querySelectorAll('.nav-link');
+
+    if (mobileMenuBtn && mainNav) {
+        // Ouvre/Ferme le menu au clic sur le burger
         mobileMenuBtn.addEventListener('click', () => {
-            // Dans une vraie application, on basculerait une classe CSS pour afficher le menu.
-            // Vu que notre CSS cache le menu principal sur mobile pour simplifier l'exemple :
-            alert("Bientôt disponible ! La navigation mobile sera activée dans la version finale.");
+            mobileMenuBtn.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            document.body.classList.toggle('no-scroll'); // Empêche de scroller la page derrière le menu
+        });
+
+        // Ferme le menu automatiquement quand on clique sur un lien du menu
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mainNav.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
         });
     }
 });
