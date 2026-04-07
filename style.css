@@ -180,34 +180,18 @@ h1, h2, h3, .logo {
     align-items: center;
 }
 
-/* Effet du logo (Le fameux 'R' en mouvement) */
-.logo {
-    font-size: 1.8rem;
-    color: var(--text-black);
-    letter-spacing: -0.5px;
+/* ==========================================================================
+   CORRECTION TAILLE LOGO PRINCIPAL (HEADER)
+   ========================================================================== */
+.main-logo, .logo-link img, .header img {
+    max-height: 40px !important; /* Bloque la hauteur à une taille très discrète */
+    width: auto !important;
+    object-fit: contain;
+    transition: var(--transition-smooth);
 }
 
-.logo-r {
-    position: relative;
-    display: inline-block;
-}
-
-.logo-r::before, .logo-r::after {
-    content: 'R';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.logo-r::before {
-    transform: translateX(3px);
-    opacity: 0.4;
-}
-
-.logo-r::after {
-    transform: translateX(6px);
-    opacity: 0.15;
+.header.scrolled .main-logo, .header.scrolled .logo-link img {
+    max-height: 32px !important; /* Encore plus petit quand on scrolle */
 }
 
 .main-nav {
@@ -357,7 +341,7 @@ h1, h2, h3, .logo {
 }
 
 /* ==========================================================================
-   SECTION CONCEPT (Contraste sombre)
+   SECTION CONCEPT
    ========================================================================== */
 .concept {
     background-color: var(--text-black);
@@ -443,7 +427,7 @@ h1, h2, h3, .logo {
 }
 
 /* ==========================================================================
-   SECTION PARTENAIRES
+   CORRECTION TAILLE LOGOS PARTENAIRES
    ========================================================================== */
 .partners {
     padding: 6rem 0;
@@ -467,19 +451,20 @@ h1, h2, h3, .logo {
     flex-wrap: wrap;
 }
 
-.partner-logo {
-    max-height: 50px;
-    filter: grayscale(100%) opacity(0.5);
+/* C'est ICI qu'on verrouille la taille pour que ça ne devienne jamais énorme */
+.partners-logos img, .partner-logo, .partner-img {
+    max-height: 40px !important; /* Hauteur très fine */
+    max-width: 130px !important; /* Limite la largeur au cas où le fichier est hyper long */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain; /* Garde les proportions de l'image nickel */
+    filter: grayscale(100%) opacity(0.6);
     transition: var(--transition-smooth);
 }
 
-.partner-logo:hover {
+.partners-logos img:hover, .partner-logo:hover, .partner-img:hover {
     filter: grayscale(0%) opacity(1);
     transform: scale(1.05);
-}
-
-.dott-logo {
-    height: 35px; /* Ajustement spécifique pour Dott */
 }
 
 /* ==========================================================================
@@ -491,7 +476,6 @@ h1, h2, h3, .logo {
     position: relative;
 }
 
-/* Motif de fond stylisé */
 .contact::before {
     content: '';
     position: absolute;
@@ -586,8 +570,10 @@ h1, h2, h3, .logo {
     margin-bottom: 2rem;
 }
 
-.footer-brand .logo {
+.footer-brand .logo, .footer-brand img {
     color: var(--bg-cream);
+    max-height: 40px !important;
+    filter: brightness(0) invert(1);
 }
 
 .footer-slogan {
@@ -660,13 +646,13 @@ h1, h2, h3, .logo {
     .hero-visual {
         width: 100%;
         height: 400px;
-        order: -1; /* Place l'image au-dessus du texte sur mobile */
+        order: -1;
     }
 }
 
 @media (max-width: 768px) {
     .main-nav, .nav-cta {
-        display: none; /* Caché sur mobile, le JS gèrera le menu burger */
+        display: none;
     }
     
     .mobile-menu-btn {
