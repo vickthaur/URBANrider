@@ -14,16 +14,16 @@
 <body>
     <header class="header" id="header">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                Urban <span class="logo-r">R</span>iders
+            <a href="#" class="logo-link">
+                <img src="UrbanRiders.PNG" alt="Logo Urban Riders" style="height: 45px; vertical-align: middle;">
             </a>
             
             <nav class="main-nav">
                 <ul class="nav-list">
                     <li><a href="#concept" class="nav-link">Le Concept</a></li>
                     <li><a href="#avantages" class="nav-link">Avantages</a></li>
+                    <li><a href="#tarifs" class="nav-link">Comparatif</a></li>
                     <li><a href="#partenaires" class="nav-link">Partenaires</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
@@ -41,16 +41,16 @@
         <section class="hero" id="accueil">
             <div class="container hero-container">
                 <div class="hero-content reveal-left">
-                    <span class="badge badge-yellow">Conçu pour les étudiants</span>
+                    <span class="badge badge-yellow">Le pass 100% étudiants lyonnais</span>
                     <h1 class="hero-title">Ta ville sans limites, c'est <span class="highlight-cyan">cher rentable.</span></h1>
                     <p class="hero-description">
-                        Vélo, trottinette, bus, tram. Plus besoin de choisir. Une seule appli, un abonnement unique, et la liberté de changer de monture comme de playlist.
+                        Vélo, trottinette, bus, métro ou tram. Plus besoin de choisir. Une seule appli, une seule facture, et la liberté de changer de monture comme de playlist.
                     </p>
                     <div class="hero-actions">
-                        <a href="#concept" class="btn btn-primary">Découvrir le pass</a>
-                        <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                        <a href="#tarifs" class="btn btn-primary">Voir les tarifs</a>
+                        <a href="#concept" class="btn btn-secondary">Comment ça marche ?</a>
                     </div>
-                    <p class="social-proof">Rejoins déjà les 191 304 étudiants de la métropole !</p>
+                    <p class="social-proof">Rejoins la file d'attente avec les 191 304 étudiants de la métropole !</p>
                 </div>
                 
                 <div class="hero-visual reveal-right">
@@ -65,26 +65,73 @@
             <div class="container">
                 <div class="section-header reveal-up">
                     <h2 class="section-title">L'abonnement classique,<br>c'est la boîte de sardines.</h2>
-                    <p class="section-subtitle">Nous simplifions Lyon. Urban Riders, c'est la fin des applis multiples et des frais cachés. Le tout-en-un sans engagement.</p>
+                    <p class="section-subtitle">Fini les rames bondées, les applis multiples et les frais cachés. Urban Riders simplifie la ville avec un abonnement unique et ultra-abordable.</p>
                 </div>
 
-                <div class="concept-grid">
+                <div class="concept-grid" id="avantages">
                     <article class="concept-card reveal-up delay-1">
-                        <div class="card-icon">🚴</div>
-                        <h3 class="card-title">1. Liberté Totale</h3>
-                        <p class="card-text">T'as raté le bus ? Swipe sur un vélo. La flemme ? Prends la trott'. Passe d'un transport à l'autre selon la météo sans te poser de questions.</p>
+                        <div class="card-icon">🛴</div>
+                        <h3 class="card-title">1. Liberté Totale (Multimodalité)</h3>
+                        <p class="card-text">T'as raté le bus ? Swipe sur un vélo. La flemme ? Prends la trott'. Passe de TCL à Dott ou Vélo'v selon la météo sans te poser de questions. Zéro excuse pour être en retard en cours.</p>
                     </article>
 
                     <article class="concept-card reveal-up delay-2">
                         <div class="card-icon">💸</div>
                         <h3 class="card-title">2. Budget Maîtrisé</h3>
-                        <p class="card-text">Moins cher qu'un kebab par semaine. Un tarif unique inférieur au cumul des abonnements. Et en plus, remboursable à 50% pour les alternants.</p>
+                        <p class="card-text">Moins cher qu'un kebab-frites par semaine. Et ça, ça ne donne pas mal au ventre. Un tarif étudiant unique, largement inférieur au cumul de plusieurs abonnements. Pas de frais cachés.</p>
                     </article>
 
                     <article class="concept-card reveal-up delay-3">
-                        <div class="card-icon">🎁</div>
-                        <h3 class="card-title">3. Bons Plans</h3>
-                        <p class="card-text">Plus tu rides, moins tu paies. "Freeze" ton abonnement l'été, et cumule des kilomètres pour des réducs chez nos partenaires lyonnais.</p>
+                        <div class="card-icon">📱</div>
+                        <h3 class="card-title">3. Simplicité & Flexibilité</h3>
+                        <p class="card-text">1 appli. 1 facture. 0 engagement. Tu rentres chez tes parents en juillet/août ? "Freeze" ton abonnement d'un simple clic. C'est ça, la vraie compréhension de tes besoins.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners" style="background-color: #FDFBF7; padding: 4rem 0;" id="appli">
+            <div class="container reveal-up">
+                <h2 class="section-title-small" style="color: var(--text-black); font-size: 2rem;">Plus tu rides, moins tu paies.</h2>
+                <p style="max-width: 800px; margin: 0 auto 3rem auto; color: var(--text-gray); font-size: 1.1rem; text-align: center;">
+                    Avec Urban Riders, tes trajets écologiques rapportent. Cumule des kilomètres (+ de km = + de réducs) et débloque des avantages exclusifs chez nos partenaires lyonnais (Salles de sport, Cinémas, Restos, Too Good To Go).
+                </p>
+                <div style="background-color: var(--accent-yellow); padding: 2rem; border-radius: 16px; border: 2px solid var(--text-black); box-shadow: 6px 6px 0px rgba(17,17,17,1); max-width: 600px; margin: 0 auto; text-align: center;">
+                    <h3 style="font-family: var(--font-title); font-size: 1.5rem; margin-bottom: 0.5rem;">💼 Tu es en alternance ou en job étudiant ?</h3>
+                    <p style="margin: 0;">Excellente nouvelle ! Urban Riders a le statut officiel de titre de transport. Ton abonnement est donc <strong>remboursable à 50% par ton employeur</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="concept" id="tarifs" style="background-color: var(--text-black);">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Arrête de payer pour des applis que tu n'ouvres pas.</h2>
+                    <p class="section-subtitle">Découvre pourquoi Urban Riders est le choix le plus logique pour ton portefeuille.</p>
+                </div>
+
+                <div class="concept-grid">
+                    <article class="concept-card reveal-up delay-1" style="opacity: 0.6;">
+                        <h3 class="card-title" style="color: #FF5252;">L'ancien monde</h3>
+                        <ul style="list-style: none; padding: 0; color: #A0A0A0; line-height: 2;">
+                            <li>❌ Pass TCL Étudiant : ~35€ / mois</li>
+                            <li>❌ Abonnement Vélo'v : 19,50€ / an</li>
+                            <li>❌ Dott (Trajets ponctuels) : Trop cher à l'acte</li>
+                            <li>❌ Engagement annuel rigide</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.2rem;">Total : Trop cher. 📉</p>
+                    </article>
+
+                    <article class="concept-card reveal-up delay-2" style="border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);">
+                        <span class="badge badge-yellow" style="margin-bottom: 1rem;">L'offre MaaS</span>
+                        <h3 class="card-title" style="color: var(--accent-cyan);">Le Pass Urban Riders</h3>
+                        <ul style="list-style: none; padding: 0; color: var(--bg-cream); line-height: 2;">
+                            <li>✅ 4 Lignes de Métro & 150 Lignes de Bus (TCL)</li>
+                            <li>✅ 5 000 Vélo'v (dont 2500 électriques) en illimité</li>
+                            <li>✅ Flotte Dott intégrée (Exclu : pas de Lime !)</li>
+                            <li>✅ Sans engagement (Gèle l'été)</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.5rem; color: var(--accent-yellow);">1 Seule Facture. 🚀</p>
                     </article>
                 </div>
             </div>
@@ -92,7 +139,7 @@
 
         <section class="partners" id="partenaires">
             <div class="container reveal-up">
-                <h2 class="section-title-small">Ils font bouger la ville avec nous</h2>
+                <h2 class="section-title-small">Les piliers de la mobilité lyonnaise, centralisés.</h2>
                 <div class="partners-logos">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Logo_TCL_Sytral.svg" alt="TCL - Transports en Commun Lyonnais" class="partner-logo">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Velo_v_logo.svg" alt="Vélo'v" class="partner-logo">
@@ -104,8 +151,8 @@
         <section class="contact" id="contact">
             <div class="container">
                 <div class="contact-box reveal-up">
-                    <h2 class="contact-title">Prêt à disrupter ta rentrée ?</h2>
-                    <p class="contact-text">Que tu sois un étudiant cherchant des infos, un BDE pour un partenariat, ou que tu veuilles t'inscrire en avant-première, écris-nous.</p>
+                    <h2 class="contact-title">Prêt à disrupter ta rentrée 2025 ?</h2>
+                    <p class="contact-text">Inscris-toi sur la liste d'attente pour le lancement. Tu es un BDE (Lyon 1, 2, 3) et tu veux intégrer Urban Riders dans vos "Packs de rentrée" ? Écris-nous !</p>
                     
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
@@ -115,9 +162,9 @@
                             <input type="email" id="email" name="email" placeholder="Ton adresse email étudiante" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Ton message... (Tu cherches un partenariat ? Des infos sur les tarifs ?)" required></textarea>
+                            <textarea id="message" name="message" placeholder="Ton message... (Liste d'attente, Partenariat BDE, Questions...)" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-submit">Envoyer le message</button>
+                        <button type="submit" class="btn btn-submit">Rejoindre le mouvement</button>
                     </form>
                 </div>
             </div>
@@ -127,13 +174,13 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
-                <span class="logo">Urban <span class="logo-r">R</span>iders</span>
-                <p class="footer-slogan">Le MaaS pensé pour les étudiants lyonnais.</p>
+                <img src="UrbanRiders.PNG" alt="Urban Riders" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 10px;">
+                <p class="footer-slogan">Le MaaS (Mobility as a Service) pensé pour les étudiants lyonnais.</p>
             </div>
             <div class="footer-links">
                 <a href="#">Mentions légales</a>
                 <a href="#">CGU</a>
-                <a href="#">FAQ</a>
+                <a href="#">FAQ (Geler son pass)</a>
             </div>
             <div class="footer-copy">
                 &copy; 2026 Urban Riders. Tous droits réservés.
